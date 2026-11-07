@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estudo B · Ateliê de restauro — Best Medical</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../public/brand/logo-best-medical.webp"><link rel="stylesheet" href="shared/base.css">
+<style>
+:root{
+  --bg:#111517; --bg-2:#161B1E; --ink:#ECEAE5; --ink-soft:#BDBFBD; --ink-mute:#979C9E;
+  --accent:#90DEF6; --on-accent:#05202C; --focus:#90DEF6;
+  --line:rgba(236,234,229,.10); --line-strong:rgba(236,234,229,.30); --hover:rgba(236,234,229,.06);
+  --hdr-bg:rgba(17,21,23,.8); --radius:999px;
+  --f-text:"Plus Jakarta Sans",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace; --f-display:"Instrument Serif",Georgia,serif;
+  --eq-shell:#2B3439; --eq-shell-2:#323C42; --eq-shell-3:#22292D; --eq-shell-edge:#56646C; --eq-lip:#1A2023;
+  --eq-shadow:rgba(0,0,0,.5); --eq-core-bg:#0D1113; --eq-core-line:#7E97A8; --eq-coil:#3B4F5C;
+  --eq-grad-fill:rgba(144,222,246,.06); --eq-grid:rgba(236,234,229,.06); --eq-label:#ECEAE5; --eq-label-line:rgba(236,234,229,.45);
+}
+.hero{position:relative;min-height:100svh;padding:104px 0 40px;overflow:hidden;isolation:isolate}
+/* luz rasante: um feixe lateral suave, sem manta escura */
+.hero::before{content:"";position:absolute;inset:-10% -10% auto auto;width:70%;height:90%;z-index:-1;
+  background:radial-gradient(closest-side,rgba(236,234,229,.07),transparent);transform:rotate(-12deg)}
+.stage{position:relative;display:grid;gap:8px}
+@media(min-width:1024px){.stage{grid-template-columns:5fr 6fr;align-items:center;gap:48px}}
+.eyebrow{color:var(--ink-mute);margin:0 0 20px;display:flex;gap:14px;flex-wrap:wrap}
+.eyebrow span+span::before{content:"—";margin-right:14px;opacity:.5}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(42px,5.6vw,92px);line-height:.98;letter-spacing:-.01em;margin:0}
+h1 i{color:var(--accent)}
+.sub{font-size:clamp(17px,1.3vw,19px);color:var(--ink-soft);max-width:46ch;margin:24px 0 30px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.bench{position:relative}
+@media(min-width:1024px){.bench{order:2}}
+@media(max-width:1023px){.bench{max-width:400px;margin:0 auto;width:100%}.lens-tag{display:none}}
+.lens-tag{position:absolute;pointer-events:none;color:var(--ink);opacity:0;transition:opacity .3s;white-space:nowrap}
+.lens-ring{fill:none;stroke:rgba(236,234,229,.55);stroke-width:1;stroke-dasharray:2 5}
+.museum{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:36px;padding:16px;border:1px solid var(--line);border-radius:16px;max-width:560px}
+.museum .plate{background:#F2F3F4;border-radius:10px;padding:8px;width:84px}
+.museum .plate img{display:block;width:100%;height:auto}
+.museum p{margin:0;font-size:14px;color:var(--ink-soft)}
+.museum p b{display:block;color:var(--ink);font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.15;margin-bottom:4px}
+.status-row{margin-top:28px}
+.status{border-radius:16px}
+.brand-mark{position:relative;width:36px;height:40px;overflow:hidden;display:block}
+.brand-mark img{position:absolute;width:57px;left:-10px;top:0}
+.brand-name{font-family:var(--f-display);font-size:24px;letter-spacing:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Best Medical, início">
+      <span class="brand-mark" aria-hidden="true"><img src="../public/brand/logo-best-medical.webp" alt=""></span>
+      <span class="brand-name">Best Medical</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#">Soluções <span class="caret">▾</span></a><a href="#">Reparar antes de trocar</a><a href="#">Ferramentas <span class="caret">▾</span></a><a href="#">Conformidade</a><a href="#">Contato</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5511918661002?text=Ol%C3%A1%2C%20Best%20Medical.%20Plant%C3%A3o%2024h%3A%20tenho%20um%20equipamento%20parado."><span class="dot" aria-hidden="true"></span>Plantão 24h</a>
+    <button class="menu-btn" type="button" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" data-scan-area>
+    <div class="wrap">
+      <div class="stage">
+        <div class="bench">
+          <div class="eq" id="eq"></div>
+          <span class="lens-tag mono" id="tag">Camada interna</span>
+        </div>
+        <div>
+          <p class="eyebrow mono"><span>Engenharia clínica independente</span><span>São Paulo</span></p>
+          <h1>Menos troca desnecessária. <i>Mais disponibilidade</i> para o seu parque de imagem.</h1>
+          <p class="sub">Reparo de bobinas e placas, manutenção preventiva e corretiva e peças com laudo para ressonância magnética, tomografia e hemodinâmica, em todo o Brasil e no exterior.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="https://wa.me/5511918661002?text=Ol%C3%A1%2C%20Best%20Medical.%20Plant%C3%A3o%2024h%3A%20tenho%20um%20equipamento%20parado."><span class="dot" aria-hidden="true"></span>Plantão 24h</a>
+            <a class="btn btn-ghost" href="#contato">Solicitar auditoria técnica</a>
+          </div>
+          <div class="museum">
+            <div class="plate"><img src="../public/brand/logo-best-medical.webp" alt="Logotipo Best Medical: equipamento de imagem com linha de ECG e o lema When uptime matters" width="96" height="97"></div>
+            <p><b>Antes de trocar, a gente abre.</b>Cada componente é avaliado por dentro antes de qualquer orçamento de substituição.</p>
+          </div>
+        </div>
+      </div>
+      <dl class="status status-row">
+        <div><dt class="mono">Modalidades</dt><dd>Ressonância, tomografia e hemodinâmica</dd></div>
+        <div><dt class="mono">Abrangência</dt><dd>Todo o Brasil e exterior</dd></div>
+        <div><dt class="mono">Base</dt><dd>Pinheiros, São Paulo</dd></div>
+        <div><dt class="mono">Atendimento</dt><dd>Plantão 24h por WhatsApp</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<nav class="dock" aria-label="Contato rápido">
+  <a class="btn btn-primary" href="https://wa.me/5511918661002?text=Ol%C3%A1%2C%20Best%20Medical.%20Plant%C3%A3o%2024h%3A%20tenho%20um%20equipamento%20parado."><span class="dot" aria-hidden="true"></span>Plantão 24h</a>
+  <a class="btn btn-ghost" href="#contato">Solicitar atendimento</a>
+</nav>
+
+<script src="shared/equip.js"></script>
+<script src="shared/drive.js"></script>
+<script>
+const host = document.getElementById("eq");
+const r = buildEquip(host, "lens");
+// anel pontilhado da lente, desenhado por cima
+const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+ring.setAttribute("class", "lens-ring"); ring.setAttribute("r", 150); r.svg.appendChild(ring);
+const tag = document.getElementById("tag");
+driveEquip(host, r, {
+  apply(x, y){
+    r.mask.setAttribute("cx", x); r.mask.setAttribute("cy", y);
+    ring.setAttribute("cx", x); ring.setAttribute("cy", y);
+    const b = r.svg.getBoundingClientRect(), k = b.width / 900;
+    tag.style.opacity = 1;
+    tag.style.transform = `translate(${(x + 50 - 60) * k}px, ${(y + 10 + 165) * k}px)`;
+    tag.style.left = "0"; tag.style.top = "0";
+  },
+  full(){ r.mask.setAttribute("r", 900); r.mask.setAttribute("fill", "#fff"); ring.remove(); },
+  readout(x, y, hot){ tag.textContent = hot ? hot.querySelector("text").textContent : "Camada interna"; }
+});
+</script>
+</body>
+</html>

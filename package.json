@@ -1,0 +1,40 @@
+{
+  "name": "best-medical-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "build:teste": "NEXT_PUBLIC_FORM_ENDPOINT=https://formulario.teste/lead next build && rm -rf .teste-endpoint && mv out .teste-endpoint && next build",
+    "test:e2e": "playwright test",
+    "lhci": "rm -rf .lighthouseci && lhci autorun",
+    "verificar": "npm run lint && npm run typecheck && npm run build:teste && npm run test:e2e && npm run lhci"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^7.0.3",
+    "motion": "^12.43.0",
+    "next": "16.4.5",
+    "next-intl": "^4.14.9",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.91.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@lhci/cli": "^0.16.0",
+    "@playwright/test": "^1.65.0",
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5",
+    "serve": "^14.2.7",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

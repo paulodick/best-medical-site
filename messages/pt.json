@@ -1,0 +1,55 @@
+{
+  "comum": {
+    "pularConteudo": "Pular para o conteúdo",
+    "plantao": "Plantão 24h",
+    "solicitarAtendimento": "Solicitar atendimento",
+    "solicitarAuditoria": "Solicitar auditoria técnica",
+    "menu": "Menu",
+    "fecharMenu": "Fechar menu",
+    "inicio": "Best Medical, início",
+    "navPrincipal": "Principal",
+    "contatoRapido": "Contato rápido",
+    "verTodas": "Ver todas as soluções"
+  },
+  "hero": {
+    "hud": ["RM · TC · Hemodinâmica", "Brasil e exterior"],
+    "h1a": "Menos troca desnecessária.",
+    "h1b": "Mais disponibilidade para o seu parque de imagem.",
+    "sub": "Manutenção preventiva e corretiva, reparo de bobinas e placas e peças com laudo para ressonância magnética, tomografia e hemodinâmica. Engenharia clínica independente, de São Paulo para todo o Brasil e o exterior.",
+    "scannerCanto": "RM · 1.5T · corte axial",
+    "scannerLema": "Enxergamos por dentro antes de trocar",
+    "leituraTitulo": "Varredura",
+    "leituraOcioso": "Carcaça externa",
+    "leituraEstatico": "Camada interna visível",
+    "leituraDica": "Passe o cursor sobre o equipamento",
+    "ilustracaoTitulo": "Equipamento de ressonância magnética em corte",
+    "ilustracaoDesc": "Ilustração da Best Medical: a carcaça externa e, por dentro, magneto principal, bobinas de gradiente, bobina de corpo de radiofrequência, sistema criogênico e mesa, que são os componentes avaliados antes de indicar uma troca."
+  },
+  "scanner": {
+    "rf": "Bobina de corpo · RF",
+    "grad": "Gradientes X · Y · Z",
+    "mag": "Magneto principal",
+    "cryo": "Sistema criogênico",
+    "mesa": "Mesa e acionamento"
+  },
+  "status": {
+    "titulo": "Painel da operação",
+    "modalidades": "Modalidades",
+    "abrangencia": "Abrangência",
+    "base": "Base",
+    "atendimento": "Atendimento",
+    "atendimentoValor": "Plantão 24h por WhatsApp"
+  },
+  "numeros": {
+    "titulo": "Em números"
+  },
+  "contatoRapido": {
+    "eyebrow": "Contato",
+    "titulo": "Fale com a engenharia agora.",
+    "texto": "Equipamento parado? Use o plantão. Para orçamento, auditoria ou contrato, escolha o canal que preferir.",
+    "whatsapp": "WhatsApp do plantão",
+    "telefone": "Telefone",
+    "email": "E-mail",
+    "nota": "O formulário de chamado completo entra na próxima fase."
+  }
+}
