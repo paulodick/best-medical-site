@@ -207,8 +207,8 @@ export const guia = {
       conduta: "Reinicie o sistema de aquisição seguindo a sequência de inicialização do fabricante. Evite movimentar o arco em C até a avaliação dos conectores.",
     },
     {
-      id: "mamorx-compressao",
-      modalidade: "mamorx",
+      id: "mamo-compressao",
+      modalidade: "mamo",
       prioridade: "alerta",
       sintoma: "Erro de colimador ou bloqueio da pá de compressão no mamógrafo",
       termos: "mamografia colimador compressão pá bloqueio sensor motor",

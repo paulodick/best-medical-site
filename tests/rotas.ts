@@ -3,6 +3,8 @@ export const rotas = [
   "/",
   "/manutencao-ressonancia-magnetica/",
   "/manutencao-tomografia-tubos-raios-x/",
+  "/manutencao-mamografia/",
+  "/manutencao-raios-x/",
   "/hemodinamica-arcos-cirurgicos/",
   "/reparo-bobinas-ressonancia/",
   "/pecas-e-base-de-troca/",

@@ -158,10 +158,9 @@
 .rp[data-mode="scroll"] .rp-stage > .wrap { padding-top: 88px; padding-bottom: 24px; }
 .rp-svg { max-height: 34svh; }
 @media (min-width: 1024px) { .rp-svg { max-height: 74svh; } }
-.rp-track { fill: none; stroke: rgb(144 222 246 / 0.12); stroke-width: 2; }
 .rp-main, .rp-alt { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; }
 .rp-main { stroke: var(--color-accent); }
-.rp-alt { stroke: var(--color-steel); stroke-dasharray: 0.012 0.012; }
+.rp-alt { stroke: var(--color-steel); stroke-dasharray: 0.02 0.02; }
 .rp[data-mode="scroll"] .rp-main, .rp[data-mode="scroll"] .rp-alt { stroke-dashoffset: 1; }
 .rp[data-mode="scroll"] .rp-alt { stroke-dasharray: 1; }
 .rp-node rect, .rp-node path { fill: var(--color-bg-2); stroke: rgb(144 222 246 / 0.25); stroke-width: 1.5; transition: fill 0.4s, stroke 0.4s; }
@@ -170,7 +169,13 @@
 .rp[data-mode="static"] .rp-node text, .rp-node.is-on text { fill: var(--color-ink); }
 .rp-node.rp-n-end.is-on rect, .rp[data-mode="static"] .rp-n-end rect { fill: var(--color-accent); }
 .rp-node.rp-n-end.is-on text, .rp[data-mode="static"] .rp-n-end text { fill: var(--color-on-accent); }
-.rp-node.rp-n-alt.is-on rect { stroke: var(--color-steel); }
+.rp-node.rp-n-alt.is-on rect, .rp[data-mode="static"] .rp-n-alt rect { stroke: var(--color-steel); }
+.rp-tag { font: 700 15px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.rp-tag-sim { fill: var(--color-accent); }
+.rp-tag-nao { fill: #9db8cc; }
+/* Fixado: nós e rótulos surgem quando a linha chega até eles */
+.rp[data-mode="scroll"] [data-node] { opacity: 0; transform-box: fill-box; transition: opacity 0.45s, fill 0.4s; }
+.rp[data-mode="scroll"] [data-node].is-on { opacity: 1; }
 .rp[data-mode="scroll"] .rp-step { opacity: 0.38; transition: opacity 0.4s; }
 .rp[data-mode="scroll"] .rp-step.is-active { opacity: 1; }
 /* Fixado: só o passo ativo mostra o texto, para o fecho caber na tela */
@@ -201,6 +206,8 @@
 .dg .dg-bore { fill: #07121b; stroke: #8fa8bd; stroke-width: 2; }
 .dg .dg-beam { fill: none; stroke: rgb(144 222 246 / 0.4); stroke-width: 1.2; stroke-dasharray: 3 6; }
 .dg .dg-det { fill: none; stroke: var(--color-accent); stroke-width: 10; stroke-linecap: round; opacity: 0.8; }
+.dg .dg-coil-box { fill: #2c5a7a; stroke: #6f93b0; stroke-width: 1; }
+.dg .dg-det-thin { stroke: var(--color-accent); stroke-width: 5; stroke-linecap: round; opacity: 0.85; }
 .dg .dg-arc { fill: none; stroke: #4f6b85; stroke-width: 26; stroke-linecap: round; }
 .ex-dot { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--color-bg); color: var(--color-accent); border: 2px solid var(--color-accent); transition: transform 0.2s, background 0.2s, color 0.2s; }
 .ex-hot::before { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--color-accent); animation: ex-pulse 2.4s var(--ease-out-soft) infinite; }

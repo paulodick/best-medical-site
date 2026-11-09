@@ -60,12 +60,13 @@ export const site = {
   },
 } as const;
 
-/** Modalidades. Mamografia e raios X aparecem só no site institucional: a confirmar. */
+/** Modalidades. Mamografia e raios X vêm do site institucional: confirmar com a operação (confirmada:false tira rota, menu e sitemap). */
 export const modalidades = [
   { id: "rm", sigla: "RM", curto: "ressonância", nome: "Ressonância magnética", rota: "/manutencao-ressonancia-magnetica", confirmada: true },
   { id: "tc", sigla: "TC", curto: "tomografia", nome: "Tomografia computadorizada", rota: "/manutencao-tomografia-tubos-raios-x", confirmada: true },
   { id: "hemo", sigla: "HEMO", curto: "hemodinâmica", nome: "Hemodinâmica e arcos cirúrgicos", rota: "/hemodinamica-arcos-cirurgicos", confirmada: true },
-  { id: "mamorx", sigla: "MG · RX", curto: "mamografia e raios X", nome: "Mamografia e raios X", rota: "/mamografia-raios-x", confirmada: false }, // CONFIRMAR
+  { id: "mamo", sigla: "MG", curto: "mamografia", nome: "Mamografia", rota: "/manutencao-mamografia", confirmada: true }, // CONFIRMAR
+  { id: "rx", sigla: "RX", curto: "raios X", nome: "Raios X", rota: "/manutencao-raios-x", confirmada: true }, // CONFIRMAR
 ] as const;
 
 export const modalidadesAtivas = modalidades.filter((m) => m.confirmada);

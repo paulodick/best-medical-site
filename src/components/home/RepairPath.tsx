@@ -10,7 +10,7 @@ type Props = {
   passos: Passo[];
   fecho: string;
   economia: { valor: string; rotulo: string; detalhe?: string } | null;
-  labels: { diagnostico: string; decisao: string; reparo: string; troca: string; operacao: string };
+  labels: { diagnostico: string; decisao: string; reparo: string; troca: string; operacao: string; sim: string; nao: string };
 };
 
 /**
@@ -27,8 +27,7 @@ export function RepairPath({ id, eyebrow, titulo, passos, fecho, economia, label
       return;
     }
     sec.dataset.mode = "scroll";
-    const main = sec.querySelector<SVGPathElement>("[data-path=main]")!;
-    const alt = sec.querySelector<SVGPathElement>("[data-path=alt]")!;
+    const segs = [...sec.querySelectorAll<SVGPathElement>("[data-seg]")];
     const nodes = [...sec.querySelectorAll<SVGGElement>("[data-node]")];
     const steps = [...sec.querySelectorAll<HTMLElement>("[data-step]")];
     const fechoEl = sec.querySelector<HTMLElement>("[data-fecho]")!;
@@ -40,12 +39,13 @@ export function RepairPath({ id, eyebrow, titulo, passos, fecho, economia, label
       const r = sec.getBoundingClientRect();
       const span = r.height - innerHeight;
       const p = Math.min(1, Math.max(0, -r.top / (span || 1)));
-      const pm = Math.min(1, p / 0.72);
-      const pa = Math.min(1, Math.max(0, (p - 0.5) / 0.3));
-      main.style.strokeDashoffset = String(1 - pm);
-      alt.style.strokeDashoffset = String(1 - pa);
+      // cada trecho se desenha na sua janela [a, b] da rolagem
+      segs.forEach((s) => {
+        const [a, b] = s.dataset.seg!.split(" ").map(Number);
+        s.style.strokeDashoffset = String(1 - Math.min(1, Math.max(0, (p - a) / (b - a))));
+      });
       nodes.forEach((n) => n.classList.toggle("is-on", p >= Number(n.dataset.at)));
-      const active = p < 0.3 ? 0 : p < 0.6 ? 1 : 2;
+      const active = p < 0.2 ? 0 : p < 0.52 ? 1 : 2;
       steps.forEach((s, i) => s.classList.toggle("is-active", i === active));
       fechoEl.classList.toggle("is-on", p > 0.86);
       sec.classList.toggle("is-final", p > 0.86);
@@ -103,25 +103,29 @@ export function RepairPath({ id, eyebrow, titulo, passos, fecho, economia, label
           </div>
 
           <div className="order-1 lg:order-2">
-            <svg viewBox="0 0 600 560" className="rp-svg mx-auto block h-auto w-full max-w-[560px]" role="img" aria-label={`${labels.diagnostico}, ${labels.decisao}, ${labels.reparo}, ${labels.troca}, ${labels.operacao}`}>
+            <svg viewBox="0 0 600 560" className="rp-svg mx-auto block h-auto w-full max-w-[560px]" role="img" aria-label={`${labels.diagnostico} → ${labels.decisao} ${labels.sim}: ${labels.reparo} → ${labels.operacao}. ${labels.nao}: ${labels.troca} → ${labels.operacao}.`}>
               <defs>
                 <pattern id="rpGrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgb(144 222 246 / .06)" /></pattern>
               </defs>
               <rect width="600" height="560" fill="url(#rpGrid)" />
-              {/* trilhos apagados */}
-              <path className="rp-track" d="M300 70 V190 M300 250 C300 320 470 300 470 370 V380 M470 420 C470 480 300 460 300 500 M300 250 C300 320 130 300 130 370 V380 M130 420 C130 480 300 460 300 500" />
-              {/* caminho principal: diagnóstico → decisão → reparo → operação */}
-              <path data-path="main" pathLength={1} className="rp-main" d="M300 70 V190 M300 250 C300 320 470 300 470 370 V380 M470 420 C470 480 300 460 300 500" />
-              {/* desvio: troca, só quando necessária */}
-              <path data-path="alt" pathLength={1} className="rp-alt" d="M300 250 C300 320 130 300 130 370 V380 M130 420 C130 480 300 460 300 500" />
+              {/* 1. diagnóstico → decisão */}
+              <path data-seg="0.02 0.16" pathLength={1} className="rp-main" d="M300 70 V188" />
+              {/* 2. Sim → reparo → operação */}
+              <path data-seg="0.22 0.34" pathLength={1} className="rp-main" d="M420 220 H446 C470 220 470 236 470 256 V378" />
+              <path data-seg="0.36 0.46" pathLength={1} className="rp-main" d="M470 422 C470 470 300 452 300 500" />
+              {/* 3. Não → troca → operação */}
+              <path data-seg="0.56 0.68" pathLength={1} className="rp-alt" d="M180 220 H154 C130 220 130 236 130 256 V378" />
+              <path data-seg="0.70 0.80" pathLength={1} className="rp-alt" d="M130 422 C130 470 300 452 300 500" />
               {node(300, 48, labels.diagnostico, 0)}
-              <g data-node data-at={0.2} className="rp-node rp-n-main" transform="translate(300 220)">
+              <g data-node data-at={0.16} className="rp-node rp-n-main" transform="translate(300 220)">
                 <path d="M0 -32 L120 0 L0 32 L-120 0 Z" />
                 <text y="5" textAnchor="middle">{labels.decisao}</text>
               </g>
-              {node(470, 400, labels.reparo, 0.45)}
-              {node(130, 400, labels.troca, 0.72, "alt")}
-              {node(300, 522, labels.operacao, 0.8, "end")}
+              <text data-node data-at={0.2} className="rp-tag rp-tag-sim" x="452" y="204">{labels.sim}</text>
+              <text data-node data-at={0.54} className="rp-tag rp-tag-nao" x="148" y="204" textAnchor="end">{labels.nao}</text>
+              {node(470, 400, labels.reparo, 0.34)}
+              {node(300, 522, labels.operacao, 0.46, "end")}
+              {node(130, 400, labels.troca, 0.68, "alt")}
             </svg>
           </div>
         </div>

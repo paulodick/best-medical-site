@@ -43,7 +43,7 @@ export default async function Home() {
         passos={reparar.passos}
         fecho={reparar.fecho}
         economia={eco ? { valor: eco.valor, rotulo: eco.rotulo, detalhe: eco.detalhe } : null}
-        labels={{ diagnostico: "Diagnóstico", decisao: "Reparável e seguro?", reparo: "Reparo", troca: "Troca", operacao: "Em operação" }}
+        labels={{ diagnostico: "Diagnóstico", decisao: "Reparável e seguro?", reparo: "Reparo", troca: "Troca", operacao: "Em operação", sim: "Sim", nao: "Não" }}
       />
 
       <section id={explorador.id} aria-labelledby="ex-t" className="scroll-mt-20 border-t border-line bg-bg-2/50 py-24 md:py-32">

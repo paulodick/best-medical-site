@@ -83,7 +83,8 @@ export function Explorer({ items, verDetalhes, nota, initial }: { items: Item[];
           <div id={`${uid}-spot`} aria-live="polite" className="mt-6 rounded-[12px] border border-line bg-bg-3/60 p-5">
             <p className="hud text-ink-mute">{String(current.hotspots.indexOf(spot) + 1).padStart(2, "0")} · componente</p>
             <h3 className="mt-1 text-xl font-bold">{spot.nome}</h3>
-            <p className="mt-2 text-[16px] leading-relaxed text-ink-soft">{spot.fazemos}</p>
+            {spot.oQue && <p className="mt-2 text-[16px] leading-relaxed text-ink">{spot.oQue}</p>}
+            <p className="mt-2 text-[16px] leading-relaxed text-ink-soft">{spot.oQue && <span className="hud mr-2 text-accent">Fazemos</span>}{spot.fazemos}</p>
           </div>
           <ul className="mt-5 flex flex-wrap gap-2" aria-label="Componentes">
             {current.hotspots.map((h, i) => (

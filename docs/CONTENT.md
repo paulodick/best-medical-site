@@ -13,7 +13,7 @@ Fontes lidas em 2026-11-06:
 | `/reparo-bobinas-ressonancia` | Reparo de bobinas de ressonância magnética | Fase 2 |
 | `/manutencao-tomografia-tubos-raios-x` | Manutenção de tomografia e tubos de raios X | Fase 2 |
 | `/hemodinamica-arcos-cirurgicos` | Manutenção de hemodinâmica e arcos cirúrgicos | Fase 2 |
-| `/mamografia-raios-x` | Manutenção de mamografia e raios X | Só se `modalidades.mamografiaRx.confirmada` |
+| `/manutencao-mamografia` e `/manutencao-raios-x` | Manutenção de mamografia / de raios X | Ativas (`confirmada: true`, // CONFIRMAR); `false` tira rota, menu e sitemap |
 | `/pecas-e-base-de-troca` | Peças com laudo e base de troca | Fase 2 |
 | `/ferramentas/reparar-ou-trocar` | Reparar ou trocar? | Fase 3 (pronta) |
 | `/ferramentas/simulador-parada` | Simulador de parada | Fase 3 (pronta) |

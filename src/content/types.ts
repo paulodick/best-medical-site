@@ -1,1 +1,1 @@
-export type ModalidadeId = "rm" | "tc" | "hemo" | "mamorx";
+export type ModalidadeId = "rm" | "tc" | "hemo" | "mamo" | "rx";
